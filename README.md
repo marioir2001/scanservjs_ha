@@ -1,38 +1,5 @@
 # ScanservJS Integration for Home Assistant
 
-```mermaid
-flowchart TD
-    A[Home Assistant] --> B[ScanservJS]
-    B --> C[Scanned File]
-    C --> D{Profile Options}
-
-    subgraph OPTIONS[" "]
-        direction LR
-        S(Standard)
-        P(Filename Prefix)
-        PA(Filename Prefix + Action)
-        AC(Action)
-    end
-
-    D --> S
-    D --> P
-    D --> PA
-    D --> AC
-
-    P --> R[Rename File]
-    PA --> R
-    R --> X[Execute Action]
-    AC --> X
-
-    S --> F[Scan Completed]
-    R --> F
-    X --> F
-
-    S ~~~ P
-    P ~~~ PA
-    PA ~~~ AC
-```
-
 A custom Home Assistant integration to control **ScanservJS** directly from Home Assistant.
 
 Create scan profiles, start scans with one click, automatically rename scanned files and execute custom ScanservJS actions.
@@ -275,6 +242,9 @@ flowchart TD
 
     C -->|Action| E
 ```
+<p align="center">
+  <img src="screenshots/diagramm.svg" alt="Scan workflow" width="900">
+</p>
 
 # Troubleshooting
 
