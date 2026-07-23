@@ -19,13 +19,13 @@ flowchart TD
     D --> PA
     D --> AC
 
-    P --> R1[Rename File]
-    PA --> R2[Rename File]
-    R2 --> X[Execute Action]
+    P --> R[Rename File]
+    PA --> R
+    PA --> X[Execute Action]
     AC --> X
 
     S --> F[Scan Completed]
-    R1 --> F
+    R --> F
     X --> F
 
     S ~~~ P
