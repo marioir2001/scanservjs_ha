@@ -243,7 +243,7 @@ flowchart TD
     C -->|Action| E
 ```
 <p align="center">
-  <img src="screenshots/diagramm.svg" alt="Scan workflow" width="900">
+  <img src="diagramm.svg" alt="Scan workflow" width="900">
 </p>
 
 # Troubleshooting
