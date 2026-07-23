@@ -10,15 +10,6 @@ Create scan profiles, start scans with one click, automatically rename scanned f
 
 ---
 
-```mermaid
-flowchart TD
-    A[Home Assistant] --> B[ScanservJS]
-    B --> C[Scan starten]
-    C --> D[Datei umbenennen]
-    D --> E[Action ausführen]
-    E --> F[Fertig]
-```
-
 ## Features
 
 - 📄 Scan documents directly from Home Assistant
@@ -124,20 +115,13 @@ After a scan finishes Home Assistant can execute any configured ScanservJS actio
 
 Example:
 
-```
-Scan
-
-↓
-
-Rename file
-
-↓
-
-Execute Action
-
-↓
-
-Finished
+```mermaid
+flowchart TD
+    A[Home Assistant] --> B[ScanservJS]
+    B --> C[Scan starten]
+    C --> D[Datei umbenennen]
+    D --> E[Action ausführen]
+    E --> F[Fertig]
 ```
 
 ---
