@@ -91,14 +91,16 @@ http://192.168.1.10:8080
 
 Profiles define how documents are scanned.
 
-Each profile stores:
+When creating or editing a profile, the integration automatically reads the available scanner settings from ScanservJS. This ensures that only supported options for your scanner are presented in Home Assistant.
 
-- Scanner source
+Depending on your scanner and ScanservJS configuration, available options may include:
+
+- Scanner source (Flatbed / ADF)
 - Resolution
-- Scan mode
+- Color mode
 - Paper size
-- Pipeline
-- Filters
+- File pipeline
+- Image filters
 - Batch mode
 - Filename prefix
 - File action
