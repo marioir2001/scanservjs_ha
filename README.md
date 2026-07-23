@@ -117,11 +117,11 @@ Example:
 
 ```mermaid
 flowchart LR
-    HA[Home Assistant] --> API[ScanservJS API]
-    API --> Scanner[Scanner]
-    Scanner --> File[Scanned File]
-    File --> Rename[Rename optional]
-    Rename --> Action[File Action]
+    A[Home Assistant] --> B[ScanservJS]
+    B --> C[Scanned File]
+    C --> D[Output] --> H
+    C --> E[Rename] --> H
+    C --> F[Rename] --> G[Action] --> H[Finished]
 ```
 
 ---
