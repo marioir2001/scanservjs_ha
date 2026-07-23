@@ -21,7 +21,7 @@ flowchart TD
 
     P --> R[Rename File]
     PA --> R
-    PA --> X[Execute Action]
+    R --> X[Execute Action]
     AC --> X
 
     S --> F[Scan Completed]
