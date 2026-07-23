@@ -258,17 +258,6 @@ Current ScanservJS versions expect
 
 ---
 
-# Screenshots
-
-*(To be added)*
-
-- Dashboard
-- Scan Profiles
-- Configuration
-- Example Actions
-
----
-
 # Roadmap
 
 Planned features
