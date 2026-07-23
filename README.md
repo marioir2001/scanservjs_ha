@@ -173,46 +173,15 @@ Moves scanned member applications into
 # Example Action Code in config.local.js
 
 ```javascript
-  actions: [
-    {
-      name: "move_pdf",
-
-      /**
-       * Verschiebt die angegebene Datei in den PDF-Zielordner.
-       *
-       * Aufruf über die API:
-       * POST /api/v1/files/{filename}/actions/move_pdf
-       */
-      async execute(fileInfo) {
-        const source = fileInfo.fullname;
-        const extension = path.extname(source).toLowerCase();
-
-        if (extension !== ".pdf") {
-          throw new Error(
-            `Die Aktion move_pdf akzeptiert nur PDF-Dateien. Erhalten: ${
-              extension || "unbekannter Dateityp"
-            }`
-          );
-        }
-
-        const target = await moveFile(source, PDF_TARGET);
-
-        console.log(
-          `[scanservjs] PDF durch Aktion move_pdf verschoben: ${target}`
-        );
-
-        return target;
-      },
-    },
-
+actions: [
+  {
+    name: "move_pdf",
+    async execute(fileInfo) {
+      // Your custom code
+    }
+  }
+]
 ```
-
-You can create your own actions to automatically:
-
-- move files
-- rename files
-- archive documents
-- start external workflows
 
 ---
 
