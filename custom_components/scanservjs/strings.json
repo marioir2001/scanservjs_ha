@@ -1,0 +1,156 @@
+{
+  "title": "ScanservJS",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect ScanservJS",
+        "description": "Connect Home Assistant directly to your local ScanservJS instance.",
+        "data": {
+          "name": "Name",
+          "url": "URL",
+          "verify_ssl": "Verify SSL certificate"
+        },
+        "data_description": {
+          "name": "Name used for this integration entry.",
+          "url": "Local URL of ScanservJS, for example http://192.168.1.10:8080.",
+          "verify_ssl": "Verify the certificate when using HTTPS."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to ScanservJS.",
+      "no_devices": "ScanservJS did not report a scanner."
+    },
+    "abort": {
+      "already_configured": "This scanner is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Manage scan profiles",
+        "description": "Add, edit, reorder or delete scan profiles.",
+        "menu_options": {
+          "add_profile": "Add profile",
+          "edit_profile": "Edit profile",
+          "move_profile": "Change profile order",
+          "delete_profile": "Delete profile"
+        }
+      },
+      "add_profile": {
+        "title": "Add scan profile",
+        "description": "Choose a template. You can adjust all settings in the next step.",
+        "data": {
+          "template": "Template"
+        }
+      },
+      "add_profile_data": {
+        "title": "Configure scan profile",
+        "description": "Configure the settings used when this profile button is pressed.",
+        "data": {
+          "name": "Profile name",
+          "source": "Scan source",
+          "resolution": "Resolution",
+          "mode": "Color mode",
+          "paper_size": "Paper size",
+          "pipeline": "Output format",
+          "batch": "Multi-page scanning",
+          "filters": "Filters",
+          "brightness": "Brightness",
+          "contrast": "Contrast",
+          "filename_prefix": "Filename prefix (optional)",
+          "file_action": "Action after scanning (optional)"
+        },
+        "data_description": {
+          "filename_prefix": "When set, the integration renames the file to prefix_timestamp.extension.",
+          "file_action": "Available actions are loaded directly from the ScanservJS context."
+        }
+      },
+      "edit_profile": {
+        "title": "Edit scan profile",
+        "data": {
+          "profile": "Profile"
+        }
+      },
+      "edit_profile_data": {
+        "title": "Edit scan profile",
+        "description": "Change the settings of the selected scan profile.",
+        "data": {
+          "name": "Profile name",
+          "source": "Scan source",
+          "resolution": "Resolution",
+          "mode": "Color mode",
+          "paper_size": "Paper size",
+          "pipeline": "Output format",
+          "batch": "Multi-page scanning",
+          "filters": "Filters",
+          "brightness": "Brightness",
+          "contrast": "Contrast",
+          "filename_prefix": "Filename prefix (optional)",
+          "file_action": "Action after scanning (optional)"
+        },
+        "data_description": {
+          "filename_prefix": "When set, the integration renames the file to prefix_timestamp.extension.",
+          "file_action": "Available actions are loaded directly from the ScanservJS context."
+        }
+      },
+      "move_profile": {
+        "title": "Change profile order",
+        "data": {
+          "profile": "Profile",
+          "position": "New position"
+        }
+      },
+      "delete_profile": {
+        "title": "Delete scan profile",
+        "description": "The selected profile and its button will be removed.",
+        "data": {
+          "profile": "Profile"
+        }
+      }
+    },
+    "error": {
+      "profile_exists": "A profile with this name already exists."
+    },
+    "abort": {
+      "cannot_connect": "Failed to connect to ScanservJS."
+    }
+  },
+  "selector": {
+    "profile_template": {
+      "options": {
+        "document_gray": "Black-and-white document",
+        "document_color": "Color document",
+        "photo": "Photo",
+        "custom": "Custom"
+      }
+    },
+    "batch_mode": {
+      "options": {
+        "none": "Single page",
+        "manual": "Manual",
+        "auto": "Automatic (document feeder)",
+        "auto-collate-standard": "Automatic collating"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "status": {
+        "name": "Status",
+        "state": {
+          "idle": "Ready",
+          "scanning": "Scanning",
+          "success": "Successful",
+          "error": "Error"
+        }
+      },
+      "last_scan": {
+        "name": "Last scan"
+      },
+      "last_file": {
+        "name": "Last file"
+      }
+    }
+  }
+}

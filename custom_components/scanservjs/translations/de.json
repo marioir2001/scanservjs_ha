@@ -1,0 +1,156 @@
+{
+  "title": "ScanservJS",
+  "config": {
+    "step": {
+      "user": {
+        "title": "ScanservJS verbinden",
+        "description": "Verbinde Home Assistant direkt mit deiner lokalen ScanservJS-Instanz.",
+        "data": {
+          "name": "Name",
+          "url": "URL",
+          "verify_ssl": "SSL-Zertifikat prüfen"
+        },
+        "data_description": {
+          "name": "Name für diesen Integrationseintrag.",
+          "url": "Lokale Adresse von ScanservJS, zum Beispiel http://192.168.1.10:8080.",
+          "verify_ssl": "Bei HTTPS das Zertifikat überprüfen."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Verbindung zu ScanservJS fehlgeschlagen.",
+      "no_devices": "ScanservJS hat keinen Scanner gemeldet."
+    },
+    "abort": {
+      "already_configured": "Dieser Scanner ist bereits eingerichtet."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Scanprofile verwalten",
+        "description": "Scanprofile hinzufügen, bearbeiten, sortieren oder löschen.",
+        "menu_options": {
+          "add_profile": "Profil hinzufügen",
+          "edit_profile": "Profil bearbeiten",
+          "move_profile": "Reihenfolge ändern",
+          "delete_profile": "Profil löschen"
+        }
+      },
+      "add_profile": {
+        "title": "Scanprofil hinzufügen",
+        "description": "Wähle eine Vorlage. Im nächsten Schritt kannst du alle Einstellungen anpassen.",
+        "data": {
+          "template": "Vorlage"
+        }
+      },
+      "add_profile_data": {
+        "title": "Scanprofil einrichten",
+        "description": "Lege fest, welche Einstellungen beim Drücken dieses Profilknopfs verwendet werden.",
+        "data": {
+          "name": "Profilname",
+          "source": "Scanquelle",
+          "resolution": "Auflösung",
+          "mode": "Farbmodus",
+          "paper_size": "Papierformat",
+          "pipeline": "Ausgabeformat",
+          "batch": "Mehrseitiges Scannen",
+          "filters": "Filter",
+          "brightness": "Helligkeit",
+          "contrast": "Kontrast",
+          "filename_prefix": "Dateinamenspräfix (optional)",
+          "file_action": "Aktion nach dem Scan (optional)"
+        },
+        "data_description": {
+          "filename_prefix": "Wird ein Präfix eingetragen, benennt die Integration die Datei in Präfix_Zeitstempel.Endung um.",
+          "file_action": "Die verfügbaren Aktionen werden direkt aus dem ScanservJS-Kontext geladen."
+        }
+      },
+      "edit_profile": {
+        "title": "Scanprofil bearbeiten",
+        "data": {
+          "profile": "Profil"
+        }
+      },
+      "edit_profile_data": {
+        "title": "Scanprofil bearbeiten",
+        "description": "Ändere die Einstellungen des ausgewählten Scanprofils.",
+        "data": {
+          "name": "Profilname",
+          "source": "Scanquelle",
+          "resolution": "Auflösung",
+          "mode": "Farbmodus",
+          "paper_size": "Papierformat",
+          "pipeline": "Ausgabeformat",
+          "batch": "Mehrseitiges Scannen",
+          "filters": "Filter",
+          "brightness": "Helligkeit",
+          "contrast": "Kontrast",
+          "filename_prefix": "Dateinamenspräfix (optional)",
+          "file_action": "Aktion nach dem Scan (optional)"
+        },
+        "data_description": {
+          "filename_prefix": "Wird ein Präfix eingetragen, benennt die Integration die Datei in Präfix_Zeitstempel.Endung um.",
+          "file_action": "Die verfügbaren Aktionen werden direkt aus dem ScanservJS-Kontext geladen."
+        }
+      },
+      "move_profile": {
+        "title": "Reihenfolge ändern",
+        "data": {
+          "profile": "Profil",
+          "position": "Neue Position"
+        }
+      },
+      "delete_profile": {
+        "title": "Scanprofil löschen",
+        "description": "Das ausgewählte Profil und der zugehörige Knopf werden entfernt.",
+        "data": {
+          "profile": "Profil"
+        }
+      }
+    },
+    "error": {
+      "profile_exists": "Ein Profil mit diesem Namen ist bereits vorhanden."
+    },
+    "abort": {
+      "cannot_connect": "Verbindung zu ScanservJS fehlgeschlagen."
+    }
+  },
+  "selector": {
+    "profile_template": {
+      "options": {
+        "document_gray": "Dokument S/W",
+        "document_color": "Dokument Farbe",
+        "photo": "Foto",
+        "custom": "Benutzerdefiniert"
+      }
+    },
+    "batch_mode": {
+      "options": {
+        "none": "Einzelseite",
+        "manual": "Manuell",
+        "auto": "Automatisch (Dokumenteneinzug)",
+        "auto-collate-standard": "Automatisch sortieren"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "status": {
+        "name": "Status",
+        "state": {
+          "idle": "Bereit",
+          "scanning": "Scan läuft",
+          "success": "Erfolgreich",
+          "error": "Fehler"
+        }
+      },
+      "last_scan": {
+        "name": "Letzter Scan"
+      },
+      "last_file": {
+        "name": "Letzte Datei"
+      }
+    }
+  }
+}
