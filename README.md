@@ -117,7 +117,16 @@ Example:
 
 One of the biggest features of this integration is support for **ScanservJS Actions**.
 
-After a scan finishes Home Assistant can execute any configured ScanservJS action.
+File Actions allow you to execute custom JavaScript code after a scan has completed.
+
+Typical use cases include:
+
+- Move PDFs
+- Move Images
+- Rename files
+- Archive documents
+- Import into Paperless
+- Custom workflows
 
 <img src="screenshots/actions.png" width="75%">
 
