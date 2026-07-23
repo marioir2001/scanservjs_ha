@@ -343,4 +343,23 @@ flowchart TD
     E --> F
 ```
 
+```mermaid
+flowchart TD
+    A[Home Assistant] --> B[ScanservJS]
+    B --> C[Scanned File]
+
+    C --> D{Profile Options}
+
+    D --> I(Standard) --> H[Scan Completed]
+
+    D --> J(Filename Prefix) --> E[Rename File]
+    E --> H
+
+    D --> K(Action) --> F[Execute Action]
+    F --> H
+
+    D --> L(Filename Prefix + Action) --> E
+    E --> F
+```
+
 
