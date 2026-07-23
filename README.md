@@ -324,4 +324,23 @@ If you find a bug, please open an issue.
 
 MIT License
 
+```mermaid
+flowchart TD
+    A[Home Assistant] --> B[ScanservJS]
+    B --> C[Scanned File]
+
+    C --> D{Profile Options}
+
+    D -->|Standard| H[Scan Completed]
+
+    D -->|Filename Prefix| E[Rename File]
+    E --> H
+
+    D -->|Action| F[Execute Action]
+    F --> H
+
+    D -->|Filename Prefix + Action| E
+    E --> F
+```
+
 
