@@ -238,6 +238,8 @@ One click starts the complete workflow.
 
 ---
 
+<img src="screenshots/dashboard.png" width="800">
+
 # Example Workflow
 
 ```
