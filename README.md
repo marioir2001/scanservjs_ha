@@ -237,16 +237,6 @@ One click starts the complete workflow.
 
 Example
 
-```
-📄 Invoice
-
-📄 Contract
-
-📄 Member Application
-
-📷 Photo
-```
-
 <img src="screenshots/dashboard2.png" width="50%">
 
 ---
