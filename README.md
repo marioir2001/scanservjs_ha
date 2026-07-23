@@ -243,6 +243,23 @@ flowchart TD
     C -->|Action| E
 ```
 
+```mermaid
+flowchart TD
+    A[Home Assistant] --> B[ScanservJS]
+    B --> C[Scanned File]
+
+    C -->|Standard| H[Finished]
+
+    C -->|Filename Prefix| D[Rename]
+    D --> H
+
+    C -->|Action| E[Execute Action]
+    E --> H
+
+    C -->|Filename Prefix + Action| D
+    D --> E
+```
+
 # Troubleshooting
 
 ## Scanner not found
