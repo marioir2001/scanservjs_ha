@@ -117,11 +117,11 @@ Example:
 
 ```mermaid
 flowchart LR
-    A[Home Assistant] --> B[ScanservJS]
-    B --> C[Scan starten]
-    C --> D[Datei umbenennen]
-    D --> E[Action ausführen]
-    E --> F[Fertig]
+    HA[Home Assistant] --> API[ScanservJS API]
+    API --> Scanner[Scanner]
+    Scanner --> File[Scanned File]
+    File --> Rename[Rename]
+    Rename --> Action[File Action]
 ```
 
 ---
@@ -347,11 +347,4 @@ If you find a bug, please open an issue.
 
 MIT License
 
-```mermaid
-flowchart LR
-    HA[Home Assistant] --> API[ScanservJS API]
-    API --> Scanner[Scanner]
-    Scanner --> File[Scanned File]
-    File --> Rename[Rename]
-    Rename --> Action[File Action]
-```
+
