@@ -88,16 +88,11 @@ Each profile stores:
 
 Example:
 
-```
-Name:
-Invoice
-
-Filename Prefix:
-Invoice
-
-File Action:
-move_pdf
-```
+<p align="center">
+  <img src="screenshots/Profil-Edit1.png" width="45%">
+  <img src="screenshots/Profil-Edit2.png" width="45%">
+  <img src="screenshots/Profil-Edit3.png" width="45%">
+</p>
 
 ---
 
