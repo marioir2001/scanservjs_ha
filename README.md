@@ -114,6 +114,7 @@ One of the biggest features of this integration is support for **ScanservJS Acti
 After a scan finishes Home Assistant can execute any configured ScanservJS action.
 
 <img src="screenshots/actions.png" width="75%">
+
 ---
 
 ## Example Actions
