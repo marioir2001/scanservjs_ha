@@ -228,7 +228,7 @@ Example
 # Example Workflow
 
 <p align="center">
-  <img src="diagramm1.svg" alt="Scan workflow" width="75%">
+  <img src="diagramm.svg" alt="Scan workflow" width="75%">
 </p>
 
 # Troubleshooting
