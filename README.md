@@ -346,3 +346,22 @@ If you find a bug, please open an issue.
 # License
 
 MIT License
+
+
+```mermaid
+flowchart TD
+    A[ADF Scanner]
+    B[ScanservJS]
+    C[Mitgliedsantrag.pdf]
+    D[move_member_application]
+    E[/PDF/Mitgliedsantraege]
+    F[PDF Split]
+    G[Paperless-ngx]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+```
