@@ -6,6 +6,10 @@ Create scan profiles, start scans with one click, automatically rename scanned f
 
 ---
 
+<img src="screenshots/dashboard.png" width="800">
+
+---
+
 ## Features
 
 - 📄 Scan documents directly from Home Assistant
