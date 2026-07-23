@@ -347,3 +347,14 @@ If you find a bug, please open an issue.
 
 MIT License
 
+```mermaid
+flowchart TD
+    A[Scan Profile]
+    A --> B[Source]
+    A --> C[Resolution]
+    A --> D[Paper Size]
+    A --> E[Pipeline]
+    A --> F[Batch Mode]
+    A --> G[Filename Prefix]
+    A --> H[File Action]
+```
