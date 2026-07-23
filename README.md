@@ -126,7 +126,7 @@ Finished
 
 ### move_pdf
 
-Moves all PDF files into
+Moves PDF file into
 
 ```
 /targets/pdf
