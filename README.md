@@ -120,8 +120,8 @@ flowchart LR
     A[Home Assistant] --> B[ScanservJS]
     B --> C[Scanned File]
     C --> |Standard|D[Output] --> H
-    C --> E[Rename] --> H
-    C --> F[Rename] --> G[Action] --> H[Finished]
+    C --> |Präfix| E[Rename] --> H
+    C --> |Präfix and Action|F[Rename] --> G[Action] --> H[Finished]
 ```
 
 ---
