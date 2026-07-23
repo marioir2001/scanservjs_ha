@@ -116,7 +116,7 @@ After a scan finishes Home Assistant can execute any configured ScanservJS actio
 Example:
 
 ```mermaid
-flowchart LR
+flowchart TD
     A[Home Assistant] --> B[ScanservJS]
     B --> C[Scanned File]
 
