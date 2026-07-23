@@ -231,6 +231,8 @@ Example
   <img src="diagramm2.svg" alt="Scan workflow" width="75%">
 </p>
 
+--- 
+
 # Troubleshooting
 
 ## Scanner not found
