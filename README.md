@@ -89,9 +89,9 @@ Each profile stores:
 Example:
 
 <p align="center">
-  <img src="screenshots/Profil-Edit1.png" width="33%">
-  <img src="screenshots/Profil-Edit2.png" width="33%">
-  <img src="screenshots/Profil-Edit3.png" width="33%">
+  <img src="screenshots/Profil-Edit1.png" width="30%">
+  <img src="screenshots/Profil-Edit2.png" width="30%">
+  <img src="screenshots/Profil-Edit3.png" width="30%">
 </p>
 
 ---
