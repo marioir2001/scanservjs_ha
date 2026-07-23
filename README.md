@@ -121,6 +121,8 @@ The available options are automatically detected and may differ depending on you
 
 One of the biggest features of this integration is support for **ScanservJS Actions**.
 
+File Actions allow custom workflows to be executed automatically after a scan has completed. This makes it easy to move documents, sort images or prepare files for applications such as Paperless-ngx.
+
 File Actions allow you to execute custom JavaScript code after a scan has completed.
 
 Typical use cases include:
