@@ -348,13 +348,10 @@ If you find a bug, please open an issue.
 MIT License
 
 ```mermaid
-flowchart TD
-    A[Scan Profile]
-    A --> B[Source]
-    A --> C[Resolution]
-    A --> D[Paper Size]
-    A --> E[Pipeline]
-    A --> F[Batch Mode]
-    A --> G[Filename Prefix]
-    A --> H[File Action]
+flowchart LR
+    HA[Home Assistant] --> API[ScanservJS API]
+    API --> Scanner[Scanner]
+    Scanner --> File[Scanned File]
+    File --> Rename[Rename]
+    Rename --> Action[File Action]
 ```
