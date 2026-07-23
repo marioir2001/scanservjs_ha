@@ -13,7 +13,7 @@ ScanservJS already provides a great web interface for scanning. This integration
 ---
 
 <img src="screenshots/dashboard.png" width="800">
-Every scan profile is exposed as a Home Assistant button entity and can be used in dashboards, automations and scripts.
+
 ---
 
 ## Features
@@ -199,7 +199,7 @@ Every profile creates its own Home Assistant button.
 
 One click starts the complete workflow.
 
-Example
+Every scan profile is exposed as a Home Assistant button entity and can be used in dashboards, automations and scripts.
 
 <img src="screenshots/dashboard2.png" width="50%">
 
