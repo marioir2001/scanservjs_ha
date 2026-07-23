@@ -107,7 +107,6 @@ Depending on your scanner and ScanservJS configuration, available options may in
   
 **Note:** All available scanner options are loaded dynamically from your ScanservJS configuration. If you change scanner settings or update ScanservJS, simply reload the integration to make the new options available.
 
-The profile editor is built dynamically from your ScanservJS configuration.
 The available options are automatically detected and may differ depending on your scanner model.
 
 <p align="center">
