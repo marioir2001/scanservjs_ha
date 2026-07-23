@@ -236,9 +236,9 @@ Example
 
 One click starts the complete workflow.
 
----
+<img src="screenshots/dashboard2.png" width="800">
 
-<img src="screenshots/dashboard.png" width="800">
+---
 
 # Example Workflow
 
