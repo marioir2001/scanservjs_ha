@@ -172,7 +172,7 @@ move_member_application
 
 ---
 
-# Example config.local.js
+# Example Action Code in config.local.js
 
 ```javascript
   actions: [
