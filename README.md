@@ -203,7 +203,7 @@ Every scan profile is exposed as a Home Assistant button entity and can be used 
 
 <p align="center">
   <img src="screenshots/dashboard2.png" width="40%">
-  <img src="screenshots/dashboard3.png" width="40%">
+  <img src="screenshots/dashboard4.png" width="40%">
 </p>
 
 
