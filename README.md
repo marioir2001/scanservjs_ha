@@ -30,3 +30,306 @@ Create scan profiles, start scans with one click, automatically rename scanned f
 - Working ScanservJS installation
 
 ---
+
+# Installation
+
+Copy the integration into
+
+```
+custom_components/scanservjs
+```
+
+Restart Home Assistant.
+
+After restarting:
+
+```
+Settings
+→ Devices & Services
+→ Add Integration
+→ ScanservJS
+```
+
+---
+
+# Configuration
+
+Only three settings are required.
+
+| Setting | Description |
+|----------|-------------|
+| Name | Name of the integration |
+| URL | ScanservJS URL |
+| Verify SSL | Enable SSL verification |
+
+Example:
+
+```
+http://192.168.1.10:8080
+```
+
+---
+
+# Creating Scan Profiles
+
+Profiles define how documents are scanned.
+
+Each profile stores:
+
+- Scanner source
+- Resolution
+- Scan mode
+- Paper size
+- Pipeline
+- Filters
+- Batch mode
+- Filename prefix
+- File action
+
+Example:
+
+```
+Name:
+Invoice
+
+Filename Prefix:
+Invoice
+
+File Action:
+move_pdf
+```
+
+---
+
+# File Actions
+
+One of the biggest features of this integration is support for **ScanservJS Actions**.
+
+After a scan finishes Home Assistant can execute any configured ScanservJS action.
+
+Example:
+
+```
+Scan
+
+↓
+
+Rename file
+
+↓
+
+Execute Action
+
+↓
+
+Finished
+```
+
+---
+
+## Example Actions
+
+### move_pdf
+
+Moves all PDF files into
+
+```
+/targets/pdf
+```
+
+---
+
+### move_image
+
+Moves images into
+
+```
+/targets/image
+```
+
+---
+
+### move_member_application
+
+Moves scanned member applications into
+
+```
+/targets/pdf/Mitgliedsantraege
+```
+
+Example workflow
+
+```
+ADF Scan
+
+↓
+
+Mitgliedsantrag_2026-07-23.pdf
+
+↓
+
+move_member_application
+
+↓
+
+/targets/pdf/Mitgliedsantraege
+```
+
+---
+
+# Example config.local.js
+
+```javascript
+module.exports = {
+    actions: [
+        {
+            name: "move_pdf",
+            async execute(fileInfo) {
+                ...
+            }
+        }
+    ]
+}
+```
+
+You can create your own actions to automatically:
+
+- move files
+- rename files
+- archive documents
+- start external workflows
+
+---
+
+# Dashboard
+
+Every profile creates its own Home Assistant button.
+
+Example
+
+```
+📄 Invoice
+
+📄 Contract
+
+📄 Member Application
+
+📷 Photo
+```
+
+One click starts the complete workflow.
+
+---
+
+# Example Workflow
+
+```
+Home Assistant
+
+↓
+
+Start Scan
+
+↓
+
+ScanservJS
+
+↓
+
+Scan
+
+↓
+
+Rename File
+
+↓
+
+Execute Action
+
+↓
+
+Finished
+```
+
+---
+
+# Troubleshooting
+
+## Scanner not found
+
+Open
+
+```
+Settings
+→ Devices and Storage
+```
+
+Click
+
+```
+Reset
+```
+
+---
+
+## No Actions available
+
+Verify that your
+
+```
+config.local.js
+```
+
+contains configured actions.
+
+Restart ScanservJS afterwards.
+
+---
+
+## Rename does not work
+
+This integration uses the ScanservJS rename API.
+
+Current ScanservJS versions expect
+
+```json
+{
+  "newName": "filename.pdf"
+}
+```
+
+---
+
+# Screenshots
+
+*(To be added)*
+
+- Dashboard
+- Scan Profiles
+- Configuration
+- Example Actions
+
+---
+
+# Roadmap
+
+Planned features
+
+- HACS support
+- Additional scan templates
+- More translations
+- Improved diagnostics
+
+---
+
+# Contributing
+
+Pull requests are welcome.
+
+If you find a bug, please open an issue.
+
+---
+
+# License
+
+MIT License
