@@ -227,23 +227,8 @@ Example
 
 # Example Workflow
 
-```mermaid
-flowchart TD
-    A[Home Assistant] --> B[ScanservJS]
-    B --> C[Scanned File]
-
-    C -->|Standard| H[Finished]
-    C -->|Filename Prefix| D[Rename]
-    D --> H
-
-    C -->|Filename Prefix + Action| D
-    D --> E[Execute Action]
-    E --> H
-
-    C -->|Action| E
-```
 <p align="center">
-  <img src="diagramm.svg" alt="Scan workflow" width="900">
+  <img src="diagramm.svg" alt="Scan workflow" width="75%">
 </p>
 
 # Troubleshooting
