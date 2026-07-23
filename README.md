@@ -236,6 +236,8 @@ Example
 
 ---
 
+#Troubleshooting
+
 ## No Actions available
 
 Verify that your
@@ -249,6 +251,10 @@ contains configured actions.
 Restart ScanservJS afterwards.
 
 ---
+
+## Changes are not visible
+
+If you change your `config.local.js` or scanner configuration, restart ScanservJS and reload the Home Assistant integration to refresh the available options.
 
 ## Rename does not work
 
