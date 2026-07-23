@@ -236,7 +236,7 @@ Example
 
 ---
 
-#Troubleshooting
+# Troubleshooting
 
 ## No Actions available
 
@@ -250,7 +250,6 @@ contains configured actions.
 
 Restart ScanservJS afterwards.
 
----
 
 ## Changes are not visible
 
