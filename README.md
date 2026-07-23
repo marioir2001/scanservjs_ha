@@ -44,17 +44,18 @@ custom_components/scanservjs
 Restart Home Assistant.
 
 After restarting:
-
-### HACS (Coming Soon)
-
-Not yet available.
-
 ```
 Settings
 → Devices & Services
 → Add Integration
 → ScanservJS
 ```
+
+### HACS (Coming Soon)
+
+Not yet available.
+
+
 
 ---
 
