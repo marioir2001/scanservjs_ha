@@ -222,6 +222,8 @@ You can create your own actions to automatically:
 
 Every profile creates its own Home Assistant button.
 
+One click starts the complete workflow.
+
 Example
 
 ```
@@ -233,8 +235,6 @@ Example
 
 📷 Photo
 ```
-
-One click starts the complete workflow.
 
 <img src="screenshots/dashboard2.png" width="50%">
 
