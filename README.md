@@ -19,6 +19,8 @@ Create scan profiles, start scans with one click, automatically rename scanned f
 - 📂 Execute ScanservJS file actions after scanning
 - 📊 Home Assistant entities for every scan profile
 - ⚡ Easy profile management inside Home Assistant
+- 🌍 Multi-language support
+- 🔄 Automatic file renaming
 
 ---
 
@@ -42,6 +44,10 @@ custom_components/scanservjs
 Restart Home Assistant.
 
 After restarting:
+
+### HACS (Coming Soon)
+
+Not yet available.
 
 ```
 Settings
