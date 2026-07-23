@@ -362,4 +362,22 @@ flowchart TD
     E --> F
 ```
 
+```mermaid
+---
+config:
+  layout: fixed
+---
+flowchart TB
+    A["Home Assistant"] --> B["ScanservJS"]
+    B --> C["Scanned File"]
+    C --> D{"Profile Options"}
+    D --> J("Filename Prefix") & L("Filename Prefix + Action") & I("Standard") & K("Action")
+    I --> H["Scan Completed"]
+    J --> E["Rename File"]
+    E --> H & F["Execute Action"]
+    K --> F
+    F --> H
+    L --> E
+```
+
 
