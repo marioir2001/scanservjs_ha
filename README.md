@@ -6,6 +6,12 @@ Create scan profiles, start scans with one click, automatically rename scanned f
 
 ---
 
+## Why this integration?
+
+ScanservJS already provides a great web interface for scanning. This integration brings ScanservJS directly into Home Assistant, allowing scans to be started from dashboards, automations and scripts while supporting filename prefixes and custom ScanservJS file actions.
+
+---
+
 <img src="screenshots/dashboard.png" width="800">
 
 ---
