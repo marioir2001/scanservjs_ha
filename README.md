@@ -105,7 +105,7 @@ Depending on your scanner and ScanservJS configuration, available options may in
 - Filename prefix
 - File action
   
-###Note: ####All available scanner options are loaded dynamically from your ScanservJS configuration. If you change scanner settings or update ScanservJS, simply reload the integration to make the new options available.
+**Note:** All available scanner options are loaded dynamically from your ScanservJS configuration. If you change scanner settings or update ScanservJS, simply reload the integration to make the new options available.
 
 Example:
 
