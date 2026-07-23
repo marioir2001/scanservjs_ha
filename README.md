@@ -228,7 +228,7 @@ Example
 # Example Workflow
 
 <p align="center">
-  <img src="diagramm.svg" alt="Scan workflow" width="75%">
+  <img src="diagramm2.svg" alt="Scan workflow" width="75%">
 </p>
 
 # Troubleshooting
@@ -312,60 +312,6 @@ If you find a bug, please open an issue.
 
 MIT License
 
-```mermaid
-flowchart TD
-    A[Home Assistant] --> B[ScanservJS]
-    B --> C[Scanned File]
 
-    C --> D{Profile Options}
-
-    D -->|Standard| H[Scan Completed]
-
-    D -->|Filename Prefix| E[Rename File]
-    E --> H
-
-    D -->|Action| F[Execute Action]
-    F --> H
-
-    D -->|Filename Prefix + Action| E
-    E --> F
-```
-
-```mermaid
-flowchart TD
-    A[Home Assistant] --> B[ScanservJS]
-    B --> C[Scanned File]
-
-    C --> D{Profile Options}
-
-    D --> I(Standard) --> H[Scan Completed]
-
-    D --> J(Filename Prefix) --> E[Rename File]
-    E --> H
-
-    D --> K(Action) --> F[Execute Action]
-    F --> H
-
-    D --> L(Filename Prefix + Action) --> E
-    E --> F
-```
-
-```mermaid
----
-config:
-  layout: fixed
----
-flowchart TB
-    A["Home Assistant"] --> B["ScanservJS"]
-    B --> C["Scanned File"]
-    C --> D{"Profile Options"}
-    D --> J("Filename Prefix") & L("Filename Prefix + Action") & I("Standard") & K("Action")
-    I --> H["Scan Completed"]
-    J --> E["Rename File"]
-    E --> H & F["Execute Action"]
-    K --> F
-    F --> H
-    L --> E
-```
 
 
