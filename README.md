@@ -235,7 +235,7 @@ flowchart TD
     C -->|Standard| H[Finished]
     C -->|Filename Prefix| D[Rename] --> H
     C -->|Filename Prefix + Action| D --> E[Execute Action] --> H
-    C -->|Action| E --> H
+    C -->|Action| E
 ---
 
 # Troubleshooting
