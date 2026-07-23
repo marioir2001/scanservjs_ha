@@ -237,32 +237,14 @@ Example
 
 # Example Workflow
 
-```
-Home Assistant
+```mermaid
+flowchart TD
+    A[Home Assistant] --> B[ScanservJS]
+    B --> C[Scanned File]
 
-↓
-
-Start Scan
-
-↓
-
-ScanservJS
-
-↓
-
-Scan
-
-↓
-
-Rename File
-
-↓
-
-Execute Action
-
-↓
-
-Finished
+    C -->|Standard| H[Finished]
+    C -->|Filename Prefix| D[Rename] --> H
+    C -->|Filename Prefix + Action| D --> E[Execute Action] --> H
 ```
 
 ---
