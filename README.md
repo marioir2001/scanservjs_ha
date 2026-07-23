@@ -201,7 +201,11 @@ One click starts the complete workflow.
 
 Every scan profile is exposed as a Home Assistant button entity and can be used in dashboards, automations and scripts.
 
-<img src="screenshots/dashboard2.png" width="50%">
+<p align="center">
+  <img src="screenshots/dashboard2.png" width="40%">
+  <img src="screenshots/dashboard3.png" width="40%">
+</p>
+
 
 ---
 
