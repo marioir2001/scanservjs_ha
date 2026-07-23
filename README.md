@@ -233,10 +233,15 @@ flowchart TD
     B --> C[Scanned File]
 
     C -->|Standard| H[Finished]
-    C -->|Filename Prefix| D[Rename] --> H
-    C -->|Filename Prefix + Action| D --> E[Execute Action] --> H
+    C -->|Filename Prefix| D[Rename]
+    D --> H
+
+    C -->|Filename Prefix + Action| D
+    D --> E[Execute Action]
+    E --> H
+
     C -->|Action| E
----
+```
 
 # Troubleshooting
 
