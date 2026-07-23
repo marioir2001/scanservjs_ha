@@ -120,7 +120,7 @@ flowchart LR
     HA[Home Assistant] --> API[ScanservJS API]
     API --> Scanner[Scanner]
     Scanner --> File[Scanned File]
-    File --> Rename[Rename]
+    File --> Rename[Rename (Optional)]
     Rename --> Action[File Action]
 ```
 
