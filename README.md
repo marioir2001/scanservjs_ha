@@ -119,7 +119,7 @@ Example:
 flowchart LR
     A[Home Assistant] --> B[ScanservJS]
     B --> C[Scanned File]
-    C --> D[Output] --> H
+    C --> |Standard|D[Output] --> H
     C --> E[Rename] --> H
     C --> F[Rename] --> G[Action] --> H[Finished]
 ```
