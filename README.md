@@ -162,24 +162,6 @@ Moves scanned member applications into
 /targets/pdf/Mitgliedsantraege
 ```
 
-Example workflow
-
-```
-ADF Scan
-
-↓
-
-Mitgliedsantrag_2026-07-23.pdf
-
-↓
-
-move_member_application
-
-↓
-
-/targets/pdf/Mitgliedsantraege
-```
-
 ---
 
 # Example Action Code in config.local.js
@@ -228,6 +210,14 @@ You can create your own actions to automatically:
 
 ---
 
+# Example Workflow
+
+<p align="center">
+  <img src="diagramm3.svg" alt="Scan workflow" width="75%">
+</p>
+
+---
+
 # Dashboard
 
 Every profile creates its own Home Assistant button.
@@ -237,33 +227,6 @@ One click starts the complete workflow.
 Example
 
 <img src="screenshots/dashboard2.png" width="50%">
-
----
-
-# Example Workflow
-
-<p align="center">
-  <img src="diagramm3.svg" alt="Scan workflow" width="75%">
-</p>
-
---- 
-
-# Troubleshooting
-
-## Scanner not found
-
-Open
-
-```
-Settings
-→ Devices and Storage
-```
-
-Click
-
-```
-Reset
-```
 
 ---
 
