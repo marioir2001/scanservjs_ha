@@ -113,18 +113,7 @@ One of the biggest features of this integration is support for **ScanservJS Acti
 
 After a scan finishes Home Assistant can execute any configured ScanservJS action.
 
-Example:
-
-```mermaid
-flowchart TD
-    A[Home Assistant] --> B[ScanservJS]
-    B --> C[Scanned File]
-
-    C -->|Standard| H[Finished]
-    C -->|Filename Prefix| D[Rename] --> H
-    C -->|Filename Prefix + Action| D --> E[Execute Action] --> H
-```
-
+<img src="screenshots/actions.png" width="400">
 ---
 
 ## Example Actions
