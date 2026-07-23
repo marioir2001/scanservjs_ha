@@ -10,6 +10,18 @@ Create scan profiles, start scans with one click, automatically rename scanned f
 
 ---
 
+```mermaid
+flowchart TD
+    A[Scan Profile]
+    A --> B[Source]
+    A --> C[Resolution]
+    A --> D[Paper Size]
+    A --> E[Pipeline]
+    A --> F[Batch Mode]
+    A --> G[Filename Prefix]
+    A --> H[File Action]
+```
+
 ## Features
 
 - 📄 Scan documents directly from Home Assistant
