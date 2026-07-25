@@ -59,11 +59,13 @@
           "brightness": "Helligkeit",
           "contrast": "Kontrast",
           "filename_prefix": "Dateinamenspräfix (optional)",
-          "file_action": "Aktion nach dem Scan (optional)"
+          "file_action": "Scanziel (optional)",
+          "split_pdf": "PDF aufteilen"
         },
         "data_description": {
           "filename_prefix": "Wird ein Präfix eingetragen, benennt die Integration die Datei in Präfix_Zeitstempel.Endung um.",
-          "file_action": "Die verfügbaren Aktionen werden direkt aus dem ScanservJS-Kontext geladen."
+          "file_action": "Wähle das Ziel, in dem die gescannte Datei gespeichert werden soll. Die verfügbaren Scanziele werden automatisch aus ScanservJS geladen.",
+          "split_pdf": "Teilt eine mehrseitige PDF vor dem Speichern in einzelne PDF-Dateien auf."
         }
       },
       "edit_profile": {
@@ -87,11 +89,13 @@
           "brightness": "Helligkeit",
           "contrast": "Kontrast",
           "filename_prefix": "Dateinamenspräfix (optional)",
-          "file_action": "Aktion nach dem Scan (optional)"
+          "file_action": "Scanziel (optional)",
+          "split_pdf": "PDF aufteilen"
         },
         "data_description": {
           "filename_prefix": "Wird ein Präfix eingetragen, benennt die Integration die Datei in Präfix_Zeitstempel.Endung um.",
-          "file_action": "Die verfügbaren Aktionen werden direkt aus dem ScanservJS-Kontext geladen."
+          "file_action": "Wähle das Ziel, in dem die gescannte Datei gespeichert werden soll. Die verfügbaren Scanziele werden automatisch aus ScanservJS geladen.",
+          "split_pdf": "Teilt eine mehrseitige PDF vor dem Speichern in einzelne PDF-Dateien auf."
         }
       },
       "move_profile": {

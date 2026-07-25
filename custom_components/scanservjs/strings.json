@@ -59,11 +59,13 @@
           "brightness": "Brightness",
           "contrast": "Contrast",
           "filename_prefix": "Filename prefix (optional)",
-          "file_action": "Action after scanning (optional)"
+          "file_action": "Scan target (optional)",
+          "split_pdf": "Split PDF into pages"
         },
         "data_description": {
           "filename_prefix": "When set, the integration renames the file to prefix_timestamp.extension.",
-          "file_action": "Available actions are loaded directly from the ScanservJS context."
+          "file_action": "Choose where the scanned file should be stored. Available scan targets are loaded automatically from ScanservJS.",
+          "split_pdf": "Splits a multi-page PDF into separate PDF files before saving."
         }
       },
       "edit_profile": {
@@ -87,11 +89,13 @@
           "brightness": "Brightness",
           "contrast": "Contrast",
           "filename_prefix": "Filename prefix (optional)",
-          "file_action": "Action after scanning (optional)"
+          "file_action": "Scan target (optional)",
+          "split_pdf": "Split PDF into pages"
         },
         "data_description": {
           "filename_prefix": "When set, the integration renames the file to prefix_timestamp.extension.",
-          "file_action": "Available actions are loaded directly from the ScanservJS context."
+          "file_action": "Choose where the scanned file should be stored. Available scan targets are loaded automatically from ScanservJS.",
+          "split_pdf": "Splits a multi-page PDF into separate PDF files before saving."
         }
       },
       "move_profile": {

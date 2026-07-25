@@ -15,8 +15,37 @@ from homeassistant.helpers import selector
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
 from .api import ScanservJSApiError, ScanservJSClient
-from .const import CONF_PROFILES, CONF_URL, CONF_VERIFY_SSL, DOMAIN
+from .const import (
+    CONF_FILE_ACTION,
+    CONF_PROFILES,
+    CONF_SPLIT_PDF,
+    CONF_URL,
+    CONF_VERIFY_SSL,
+    DOMAIN,
+    SPLIT_PDF_ACTION,
+)
 
+
+
+
+_ACTION_DISPLAY_NAMES = {
+    "move_pdf": "PDF",
+    "move_image": "Bilder",
+    "move_invoice": "Rechnungen",
+    "move_member_application": "Mitgliedsanträge",
+}
+
+
+def _action_display_name(action: str) -> str:
+    """Return a user-friendly label for a ScanservJS target action."""
+    if action in _ACTION_DISPLAY_NAMES:
+        return _ACTION_DISPLAY_NAMES[action]
+
+    label = action
+    if label.startswith("move_"):
+        label = label[5:]
+    label = label.replace("_", " ").strip()
+    return label[:1].upper() + label[1:] if label else action
 
 def _slug(value: str) -> str:
     slug = re.sub(r"[^a-zA-Z0-9_-]+", "_", value.strip().lower()).strip("_")
@@ -209,7 +238,8 @@ class ScanservJSOptionsFlow(OptionsFlow):
                     "paper_size": paper["name"], "brightness": int(user_input["brightness"]),
                     "contrast": int(user_input["contrast"]),
                     "filename_prefix": str(user_input.get("filename_prefix", "")).strip(),
-                    "file_action": str(user_input.get("file_action", "")).strip(),
+                    CONF_SPLIT_PDF: bool(user_input.get(CONF_SPLIT_PDF, False)),
+                    CONF_FILE_ACTION: str(user_input.get(CONF_FILE_ACTION, "")).strip(),
                 }
                 if self._editing_id:
                     profiles = [profile if p["id"] == self._editing_id else p for p in profiles]
@@ -229,13 +259,30 @@ class ScanservJSOptionsFlow(OptionsFlow):
         batch_options = settings.get("batchMode", {}).get("options", []) or ["none", "manual", "auto", "auto-collate-standard"]
         papers = _paper_sizes(self._context)
         context_actions = self._context.get("actions") or []
-        actions = [action for action in context_actions if isinstance(action, str) and action]
-        action_options = [{"value": "", "label": "—"}] + [
-            {"value": action, "label": action} for action in actions
+        actions = [
+            action
+            for action in context_actions
+            if isinstance(action, str)
+            and action
+            and action != SPLIT_PDF_ACTION
         ]
-        selected_action = str(defaults.get("file_action", ""))
-        if selected_action and selected_action not in actions:
-            action_options.append({"value": selected_action, "label": selected_action})
+        action_options = [{"value": "", "label": "—"}] + [
+            {"value": action, "label": _action_display_name(action)}
+            for action in actions
+        ]
+        selected_action = str(defaults.get(CONF_FILE_ACTION, ""))
+        split_pdf_default = bool(defaults.get(CONF_SPLIT_PDF, False))
+
+        # Migrate profiles from beta 0.4.2 where split_pdf could still be
+        # selected as the regular file action.
+        if selected_action == SPLIT_PDF_ACTION:
+            split_pdf_default = True
+            selected_action = ""
+        elif selected_action and selected_action not in actions:
+            action_options.append({
+                "value": selected_action,
+                "label": _action_display_name(selected_action),
+            })
 
         schema = vol.Schema({
             vol.Required(CONF_NAME, default=defaults.get("name", "")): selector.TextSelector(),
@@ -258,8 +305,15 @@ class ScanservJSOptionsFlow(OptionsFlow):
                     type=selector.TextSelectorType.TEXT
                 )
             ),
-            vol.Optional("file_action", default=selected_action): selector.SelectSelector(
-                selector.SelectSelectorConfig(options=action_options)
+            vol.Required(
+                CONF_SPLIT_PDF,
+                default=split_pdf_default,
+            ): selector.BooleanSelector(),
+            vol.Optional(CONF_FILE_ACTION, default=selected_action): selector.SelectSelector(
+                selector.SelectSelectorConfig(
+                    options=action_options,
+                    mode=selector.SelectSelectorMode.DROPDOWN,
+                )
             ),
         })
         return self.async_show_form(step_id=step_id, data_schema=schema, errors=errors)

@@ -113,6 +113,16 @@ class ScanservJSClient:
         )
         return data if isinstance(data, dict) else {"result": data}
 
+    async def async_list_files(self) -> list[dict[str, Any]]:
+        """Return files from the ScanservJS output directory."""
+        data = await self._request("GET", "/api/v1/files")
+        if not isinstance(data, list):
+            raise ScanservJSApiError(
+                "ScanservJS hat keine gültige Dateiliste zurückgegeben."
+            )
+
+        return [item for item in data if isinstance(item, dict)]
+
     async def _request(self, method: str, path: str, **kwargs: Any) -> Any:
         url = f"{self._base_url}{path}"
         try:
