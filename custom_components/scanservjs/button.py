@@ -9,6 +9,7 @@ from homeassistant.components.button import ButtonEntity
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity import EntityCategory
+from homeassistant.helpers import entity_registry as er
 
 from .api import ScanservJSApiError
 from .const import CONF_PROFILES, DOMAIN
@@ -18,13 +19,37 @@ _LOGGER = logging.getLogger(__name__)
 
 
 async def async_setup_entry(hass, entry: ConfigEntry, async_add_entities) -> None:
+    """Set up profile buttons and remove stale profile entities."""
     runtime: ScanservJSRuntime = entry.runtime_data
     profiles = entry.options.get(CONF_PROFILES, entry.data.get(CONF_PROFILES, []))
     if isinstance(profiles, dict):
         profiles = [dict(value, name=key) for key, value in profiles.items()]
+    profiles = list(profiles or [])
+
+    current_unique_ids = {
+        f"{entry.entry_id}_profile_{profile.get('id') or profile.get('slug') or index}"
+        for index, profile in enumerate(profiles)
+    }
+
+    entity_registry = er.async_get(hass)
+    for registry_entry in er.async_entries_for_config_entry(
+        entity_registry,
+        entry.entry_id,
+    ):
+        if (
+            registry_entry.domain == "button"
+            and registry_entry.unique_id.startswith(f"{entry.entry_id}_profile_")
+            and registry_entry.unique_id not in current_unique_ids
+        ):
+            _LOGGER.info(
+                "Removing stale ScanservJS profile entity: %s",
+                registry_entry.entity_id,
+            )
+            entity_registry.async_remove(registry_entry.entity_id)
+
     async_add_entities(
         ScanservJSProfileButton(entry, runtime, profile, index)
-        for index, profile in enumerate(profiles or [])
+        for index, profile in enumerate(profiles)
     )
 
 

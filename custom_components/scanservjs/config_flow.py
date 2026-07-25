@@ -210,14 +210,26 @@ class ScanservJSOptionsFlow(OptionsFlow):
         profiles = self._profiles
         errors: dict[str, str] = {}
         if user_input is not None:
-            profile_id = _slug(user_input[CONF_NAME])
-            if any(p["id"] == profile_id and p["id"] != self._editing_id for p in profiles):
+            profile_name = user_input[CONF_NAME].strip()
+            profile_id = self._editing_id or _slug(profile_name)
+
+            duplicate_name = any(
+                str(p.get("name", "")).strip().casefold() == profile_name.casefold()
+                and p.get("id") != self._editing_id
+                for p in profiles
+            )
+            duplicate_id = any(
+                p.get("id") == profile_id and p.get("id") != self._editing_id
+                for p in profiles
+            )
+
+            if duplicate_name or duplicate_id:
                 errors["base"] = "profile_exists"
             else:
                 paper = next(p for p in _paper_sizes(self._context) if p["name"] == user_input["paper_size"])
                 profile = {
                     "id": profile_id,
-                    "name": user_input[CONF_NAME].strip(),
+                    "name": profile_name,
                     "version": "3.1.0",
                     "batch": user_input["batch"],
                     "filters": list(user_input.get("filters", [])),
