@@ -128,6 +128,9 @@ class ScanservJSOptionsFlow(OptionsFlow):
         self._template_defaults: dict[str, Any] | None = None
         self._context: dict[str, Any] = {}
         self._device: dict[str, Any] = {}
+        self._pending_profile: dict[str, Any] | None = None
+        self._pending_profiles: list[dict[str, Any]] | None = None
+        self._pending_delete_original_default = False
 
     @property
     def _profiles(self) -> list[dict[str, Any]]:
@@ -256,16 +259,22 @@ class ScanservJSOptionsFlow(OptionsFlow):
                     "contrast": int(user_input["contrast"]),
                     "filename_prefix": str(user_input.get("filename_prefix", "")).strip(),
                     CONF_SPLIT_PDF: bool(user_input.get(CONF_SPLIT_PDF, False)),
-                    CONF_DELETE_ORIGINAL_AFTER_SPLIT: (
-                        bool(user_input.get(CONF_DELETE_ORIGINAL_AFTER_SPLIT, False))
-                        and bool(user_input.get(CONF_SPLIT_PDF, False))
-                    ),
+                    CONF_DELETE_ORIGINAL_AFTER_SPLIT: False,
                     CONF_FILE_ACTION: str(user_input.get(CONF_FILE_ACTION, "")).strip(),
                 }
                 if self._editing_id:
                     profiles = [profile if p["id"] == self._editing_id else p for p in profiles]
                 else:
                     profiles.append(profile)
+
+                if profile[CONF_SPLIT_PDF]:
+                    self._pending_profile = profile
+                    self._pending_profiles = profiles
+                    self._pending_delete_original_default = bool(
+                        (current or {}).get(CONF_DELETE_ORIGINAL_AFTER_SPLIT, False)
+                    )
+                    return await self.async_step_split_options()
+
                 return self.async_create_entry(title="", data={CONF_PROFILES: profiles})
 
         await self._load_context()
@@ -293,10 +302,6 @@ class ScanservJSOptionsFlow(OptionsFlow):
         ]
         selected_action = str(defaults.get(CONF_FILE_ACTION, ""))
         split_pdf_default = bool(defaults.get(CONF_SPLIT_PDF, False))
-        delete_original_default = bool(
-            defaults.get(CONF_DELETE_ORIGINAL_AFTER_SPLIT, False)
-        )
-
         # Migrate profiles from beta 0.4.2 where split_pdf could still be
         # selected as the regular file action.
         if selected_action == SPLIT_PDF_ACTION:
@@ -333,10 +338,6 @@ class ScanservJSOptionsFlow(OptionsFlow):
                 CONF_SPLIT_PDF,
                 default=split_pdf_default,
             ): selector.BooleanSelector(),
-            vol.Required(
-                CONF_DELETE_ORIGINAL_AFTER_SPLIT,
-                default=delete_original_default,
-            ): selector.BooleanSelector(),
             vol.Optional(CONF_FILE_ACTION, default=selected_action): selector.SelectSelector(
                 selector.SelectSelectorConfig(
                     options=action_options,
@@ -345,6 +346,35 @@ class ScanservJSOptionsFlow(OptionsFlow):
             ),
         })
         return self.async_show_form(step_id=step_id, data_schema=schema, errors=errors)
+
+    async def async_step_split_options(
+        self, user_input: dict[str, Any] | None = None
+    ) -> ConfigFlowResult:
+        """Configure options that only apply when PDF splitting is enabled."""
+        if self._pending_profile is None or self._pending_profiles is None:
+            return await self.async_step_init()
+
+        if user_input is not None:
+            self._pending_profile[CONF_DELETE_ORIGINAL_AFTER_SPLIT] = bool(
+                user_input.get(CONF_DELETE_ORIGINAL_AFTER_SPLIT, False)
+            )
+            profiles = self._pending_profiles
+            self._pending_profile = None
+            self._pending_profiles = None
+            self._pending_delete_original_default = False
+            return self.async_create_entry(title="", data={CONF_PROFILES: profiles})
+
+        return self.async_show_form(
+            step_id="split_options",
+            data_schema=vol.Schema(
+                {
+                    vol.Required(
+                        CONF_DELETE_ORIGINAL_AFTER_SPLIT,
+                        default=self._pending_delete_original_default,
+                    ): selector.BooleanSelector(),
+                }
+            ),
+        )
 
     async def async_step_move_profile(self, user_input: dict[str, Any] | None = None) -> ConfigFlowResult:
         profiles = self._profiles
