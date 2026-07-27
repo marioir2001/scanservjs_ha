@@ -1,0 +1,72 @@
+const fs = require("node:fs/promises");
+const path = require("node:path");
+
+const splitPdf = require("./actions/split_pdf");
+const movePdf = require("./actions/move_pdf");
+const moveimage = require("./actions/move_image");
+
+const PDF_TARGET = "/targets/pdf";
+const IMAGE_TARGET = "/targets/image";
+const MEMBER_APPLICATION_TARGET = "/targets/pdf/Mitgliedsantraege";
+
+async function moveFile(source, targetDirectory) {
+  await fs.mkdir(targetDirectory, { recursive: true });
+
+  const filename = path.basename(source);
+  const target = path.join(targetDirectory, filename);
+
+  /*
+   * copyFile + unlink wird statt rename verwendet, weil Quelle und Ziel
+   * auf unterschiedlichen Docker-Mounts beziehungsweise Dateisystemen
+   * liegen können.
+   */
+  await fs.copyFile(source, target);
+  await fs.unlink(source);
+
+  return target;
+}
+
+module.exports = {
+  actions: [
+
+  movePdf,
+  splitPdf,
+  moveimage,
+
+    {
+      name: "move_member_application",
+
+      /**
+       * Verschiebt Mitgliedsanträge in einen eigenen Unterordner.
+       *
+       * Ziel:
+       * /targets/pdf/Mitgliedsantraege
+       *
+       * Aufruf über die API:
+       * POST /api/v1/files/{filename}/actions/move_member_application
+       */
+      async execute(fileInfo) {
+        const source = fileInfo.fullname;
+        const extension = path.extname(source).toLowerCase();
+
+        if (extension !== ".pdf") {
+          throw new Error(
+            `Die Aktion move_member_application akzeptiert nur PDF-Dateien. Erhalten: ${
+              extension || "unbekannter Dateityp"
+            }`
+          );
+        }
+
+        const target = await moveFile(
+          source,
+          MEMBER_APPLICATION_TARGET
+        );
+
+        console.log(
+          `[scanservjs] Mitgliedsantrag verschoben: ${target}`
+        );
+
+        return target;
+      },
+    },
+
