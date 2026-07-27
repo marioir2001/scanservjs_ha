@@ -68,7 +68,9 @@ class ScanservJSClient:
         # Beta 0.3.1: ScanservJS expects the batch mode as a top-level field.
         # Existing ADF + PDF document profiles automatically get batch=auto.
         batch = profile.get("batch") or profile.get("batch_mode")
-        if batch is None:
+        if source == "FLATBED":
+            batch = "none"
+        elif batch is None:
             is_pdf = isinstance(pipeline, str) and "PDF" in pipeline.upper()
             batch = "auto" if source == "ADF" and is_pdf else "none"
 
@@ -110,6 +112,15 @@ class ScanservJSClient:
         data = await self._request(
             "POST",
             f"/api/v1/files/{encoded_filename}/actions/{encoded_action}",
+        )
+        return data if isinstance(data, dict) else {"result": data}
+
+    async def async_delete_file(self, filename: str) -> dict[str, Any]:
+        """Delete a file from the ScanservJS output directory."""
+        encoded_filename = quote(filename, safe="")
+        data = await self._request(
+            "DELETE",
+            f"/api/v1/files/{encoded_filename}",
         )
         return data if isinstance(data, dict) else {"result": data}
 

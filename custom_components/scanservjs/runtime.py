@@ -12,6 +12,7 @@ from homeassistant.util import dt as dt_util
 
 from .api import ScanservJSApiError, ScanservJSClient
 from .const import (
+    CONF_DELETE_ORIGINAL_AFTER_SPLIT,
     CONF_FILE_ACTION,
     CONF_SPLIT_PDF,
     SPLIT_PDF_ACTION,
@@ -99,6 +100,14 @@ class ScanservJSRuntime:
                                 split_filename, action
                             )
                         executed_actions.append(action)
+
+                    # Delete the original only after splitting and every
+                    # configured action for every generated page succeeded.
+                    if bool(
+                        profile.get(CONF_DELETE_ORIGINAL_AFTER_SPLIT, False)
+                    ):
+                        await self.client.async_delete_file(filename)
+                        file_info["original_deleted"] = True
 
                 elif action:
                     await self.client.async_run_file_action(filename, action)

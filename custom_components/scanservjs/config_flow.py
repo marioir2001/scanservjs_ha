@@ -16,6 +16,7 @@ from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
 from .api import ScanservJSApiError, ScanservJSClient
 from .const import (
+    CONF_DELETE_ORIGINAL_AFTER_SPLIT,
     CONF_FILE_ACTION,
     CONF_PROFILES,
     CONF_SPLIT_PDF,
@@ -231,7 +232,11 @@ class ScanservJSOptionsFlow(OptionsFlow):
                     "id": profile_id,
                     "name": profile_name,
                     "version": "3.1.0",
-                    "batch": user_input["batch"],
+                    "batch": (
+                        "none"
+                        if str(user_input["source"]).casefold() == "flatbed"
+                        else user_input["batch"]
+                    ),
                     "filters": list(user_input.get("filters", [])),
                     "index": 1,
                     "pipeline": user_input["pipeline"],
@@ -251,6 +256,10 @@ class ScanservJSOptionsFlow(OptionsFlow):
                     "contrast": int(user_input["contrast"]),
                     "filename_prefix": str(user_input.get("filename_prefix", "")).strip(),
                     CONF_SPLIT_PDF: bool(user_input.get(CONF_SPLIT_PDF, False)),
+                    CONF_DELETE_ORIGINAL_AFTER_SPLIT: (
+                        bool(user_input.get(CONF_DELETE_ORIGINAL_AFTER_SPLIT, False))
+                        and bool(user_input.get(CONF_SPLIT_PDF, False))
+                    ),
                     CONF_FILE_ACTION: str(user_input.get(CONF_FILE_ACTION, "")).strip(),
                 }
                 if self._editing_id:
@@ -284,6 +293,9 @@ class ScanservJSOptionsFlow(OptionsFlow):
         ]
         selected_action = str(defaults.get(CONF_FILE_ACTION, ""))
         split_pdf_default = bool(defaults.get(CONF_SPLIT_PDF, False))
+        delete_original_default = bool(
+            defaults.get(CONF_DELETE_ORIGINAL_AFTER_SPLIT, False)
+        )
 
         # Migrate profiles from beta 0.4.2 where split_pdf could still be
         # selected as the regular file action.
@@ -320,6 +332,10 @@ class ScanservJSOptionsFlow(OptionsFlow):
             vol.Required(
                 CONF_SPLIT_PDF,
                 default=split_pdf_default,
+            ): selector.BooleanSelector(),
+            vol.Required(
+                CONF_DELETE_ORIGINAL_AFTER_SPLIT,
+                default=delete_original_default,
             ): selector.BooleanSelector(),
             vol.Optional(CONF_FILE_ACTION, default=selected_action): selector.SelectSelector(
                 selector.SelectSelectorConfig(

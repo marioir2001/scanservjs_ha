@@ -60,12 +60,14 @@
           "contrast": "Kontrast",
           "filename_prefix": "Dateinamenspräfix (optional)",
           "file_action": "Scanziel (optional)",
-          "split_pdf": "PDF aufteilen"
+          "split_pdf": "PDF aufteilen",
+          "delete_original_after_split": "Original nach erfolgreicher Verarbeitung löschen"
         },
         "data_description": {
           "filename_prefix": "Wird ein Präfix eingetragen, benennt die Integration die Datei in Präfix_Zeitstempel.Endung um.",
           "file_action": "Wähle das Ziel, in dem die gescannte Datei gespeichert werden soll. Die verfügbaren Scanziele werden automatisch aus ScanservJS geladen.",
-          "split_pdf": "Teilt eine mehrseitige PDF vor dem Speichern in einzelne PDF-Dateien auf."
+          "split_pdf": "Teilt eine mehrseitige PDF vor dem Speichern in einzelne PDF-Dateien auf.",
+          "delete_original_after_split": "Löscht die ursprüngliche PDF nur, wenn das Aufteilen und alle nachfolgenden Dateiaktionen erfolgreich waren."
         }
       },
       "edit_profile": {
@@ -90,12 +92,14 @@
           "contrast": "Kontrast",
           "filename_prefix": "Dateinamenspräfix (optional)",
           "file_action": "Scanziel (optional)",
-          "split_pdf": "PDF aufteilen"
+          "split_pdf": "PDF aufteilen",
+          "delete_original_after_split": "Original nach erfolgreicher Verarbeitung löschen"
         },
         "data_description": {
           "filename_prefix": "Wird ein Präfix eingetragen, benennt die Integration die Datei in Präfix_Zeitstempel.Endung um.",
           "file_action": "Wähle das Ziel, in dem die gescannte Datei gespeichert werden soll. Die verfügbaren Scanziele werden automatisch aus ScanservJS geladen.",
-          "split_pdf": "Teilt eine mehrseitige PDF vor dem Speichern in einzelne PDF-Dateien auf."
+          "split_pdf": "Teilt eine mehrseitige PDF vor dem Speichern in einzelne PDF-Dateien auf.",
+          "delete_original_after_split": "Löscht die ursprüngliche PDF nur, wenn das Aufteilen und alle nachfolgenden Dateiaktionen erfolgreich waren."
         }
       },
       "move_profile": {

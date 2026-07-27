@@ -21,6 +21,8 @@ ScanservJS already provides a great web interface for scanning. This integration
 - 📄 Scan documents directly from Home Assistant
 - 📑 Support for Flatbed and ADF scanners
 - 📚 Multi-page PDF scanning
+- ✂️ Split multi-page PDFs into individual pages
+- 🗑️ Optionally delete the original PDF after successful processing
 - 📦 Batch Mode support
 - 🎨 Color, Gray and Lineart scanning
 - 📏 Paper size selection
@@ -95,7 +97,7 @@ When creating or editing a profile, the integration automatically reads the avai
 
 Depending on your scanner and ScanservJS configuration, available options may include:
 
-- Scanner source (Flatbed / ADF)
+- Scanner source (Flatbed / ADF; Flatbed always uses single-page mode)
 - Resolution
 - Color mode
 - Paper size
