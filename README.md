@@ -12,7 +12,7 @@ ScanservJS already provides a great web interface for scanning. This integration
 
 ---
 
-<img src="screenshots/dashboard.png" width="800">
+<img src="https://raw.githubusercontent.com/marioir2001/scanservjs_ha/main/screenshots/dashboard.png" width="800">
 
 ---
 
