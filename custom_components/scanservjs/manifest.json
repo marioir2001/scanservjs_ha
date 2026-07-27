@@ -1,7 +1,7 @@
 {
   "domain": "scanservjs",
   "name": "ScanservJS",
-  "version": "0.4.2",
+  "version": "0.4.4",
   "documentation": "https://github.com/marioir2001/scanservjs_ha",
   "issue_tracker": "https://github.com/marioir2001/scanservjs_ha",
   "config_flow": true,

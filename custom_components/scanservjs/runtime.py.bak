@@ -82,14 +82,26 @@ class ScanservJSRuntime:
                 action = str(profile.get(CONF_FILE_ACTION) or "").strip()
 
                 if bool(profile.get(CONF_SPLIT_PDF, False)):
-                    await self.client.async_run_file_action(
+                    split_result = await self.client.async_run_file_action(
                         filename, SPLIT_PDF_ACTION
                     )
+                    print("Split Result:", split_result)
                     executed_actions.append(SPLIT_PDF_ACTION)
 
-                    split_filenames = await self._async_wait_for_split_files(
-                        filename
-                    )
+                    split_files = split_result.get("files")
+                    if not isinstance(split_files, list) or not split_files:
+                        raise ScanservJSApiError(
+                            "split_pdf hat keine erzeugten Dateien zurückgegeben."
+                        )
+
+                    split_filenames: list[str] = []
+                    for split_file in split_files:
+                        if not isinstance(split_file, str) or not split_file:
+                            raise ScanservJSApiError(
+                                "split_pdf hat einen ungültigen Dateinamen zurückgegeben."
+                            )
+                        split_filenames.append(PurePath(split_file).name)
+
                     file_info["split_files"] = split_filenames
                     file_info["split_count"] = len(split_filenames)
 
@@ -121,49 +133,6 @@ class ScanservJSRuntime:
             self.last_file_info = file_info
             self._notify()
             return result
-
-    async def _async_wait_for_split_files(
-        self, original_filename: str
-    ) -> list[str]:
-        """Wait until the numbered PDFs created by split_pdf are visible."""
-        original = PurePath(original_filename)
-        stem = original.stem
-        suffix = original.suffix
-
-        if not suffix:
-            raise ScanservJSApiError(
-                "Die zu teilende Datei hat keine Dateiendung."
-            )
-
-        pattern = re.compile(
-            rf"^{re.escape(stem)}_\d{{3}}{re.escape(suffix)}$",
-            re.IGNORECASE,
-        )
-
-        # ScanservJS usually finishes the action before replying. The retry loop
-        # also covers delayed filesystem visibility on slower systems.
-        for attempt in range(21):
-            files = await self.client.async_list_files()
-            split_filenames = sorted(
-                {
-                    name
-                    for item in files
-                    if not bool(item.get("isDirectory", False))
-                    and isinstance((name := item.get("name")), str)
-                    and pattern.fullmatch(name)
-                }
-            )
-
-            if split_filenames:
-                return split_filenames
-
-            if attempt < 20:
-                await asyncio.sleep(0.25)
-
-        raise ScanservJSApiError(
-            "Die von split_pdf erzeugten Einzeldateien wurden nicht in "
-            "der ScanservJS-Dateiliste gefunden."
-        )
 
 
 def _build_filename(prefix: str, original_filename: str) -> str:
