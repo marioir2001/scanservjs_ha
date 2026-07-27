@@ -110,9 +110,10 @@ Depending on your scanner and ScanservJS configuration, available options may in
 The available options are automatically detected and may differ depending on your scanner model.
 
 <p align="center">
-  <img src="screenshots/Profil-Edit1.png" width="30%">
-  <img src="screenshots/Profil-Edit2.png" width="30%">
-  <img src="screenshots/Profil-Edit3.png" width="30%">
+  <img src="https://raw.githubusercontent.com/marioir2001/scanservjs_ha/main/screenshots/Profil-Edit1.png" width="30%">
+  <img src="https://raw.githubusercontent.com/marioir2001/scanservjs_ha/main/screenshots/Profil-Edit2.png" width="30%">
+  <img src="https://raw.githubusercontent.com/marioir2001/scanservjs_ha/main/screenshots/Profil-Edit3.png" width="30%">
+  
 </p>
 
 ---
@@ -134,7 +135,7 @@ Typical use cases include:
 - Import into Paperless
 - Custom workflows
 
-<img src="screenshots/actions.png" width="75%">
+<img src="https://raw.githubusercontent.com/marioir2001/scanservjs_ha/main/screenshots/actions.png" width="75%">
 
 ---
 
@@ -188,7 +189,8 @@ actions: [
 # Example Workflow
 
 <p align="center">
-  <img src="diagramm3.svg" alt="Scan workflow" width="75%">
+  <img src="https://raw.githubusercontent.com/marioir2001/scanservjs_ha/main/diagramm3.svg" alt="Scan workflow" width="75%">
+  
 </p>
 
 ---
@@ -202,9 +204,10 @@ One click starts the complete workflow.
 Every scan profile is exposed as a Home Assistant button entity and can be used in dashboards, automations and scripts.
 
 <p align="center">
-  <img src="screenshots/dashboard2.png" width="40%">
-  <img src="screenshots/dashboard4.png" width="40%">
+  <img src="https://raw.githubusercontent.com/marioir2001/scanservjs_ha/main/screenshots/dashboard2.png" width="40%">
+  <img src="https://raw.githubusercontent.com/marioir2001/scanservjs_ha/main/screenshots/dashboard4.png" width="40%">
 </p>
+
 
 
 ---
