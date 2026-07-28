@@ -60,12 +60,14 @@
           "contrast": "Contrast",
           "filename_prefix": "Filename prefix (optional)",
           "file_action": "Scan target (optional)",
-          "split_pdf": "Split PDF into pages"
+          "split_pdf": "Split PDF into pages",
+          "delete_original_after_split": "Delete original after successful processing"
         },
         "data_description": {
           "filename_prefix": "When set, the integration renames the file to prefix_timestamp.extension.",
           "file_action": "Choose where the scanned file should be stored. Available scan targets are loaded automatically from ScanservJS.",
-          "split_pdf": "Splits a multi-page PDF into separate PDF files before saving."
+          "split_pdf": "Splits a multi-page PDF into separate PDF files before saving.",
+          "delete_original_after_split": "Deletes the original PDF only after splitting and all subsequent file actions completed successfully."
         }
       },
       "edit_profile": {
@@ -90,12 +92,24 @@
           "contrast": "Contrast",
           "filename_prefix": "Filename prefix (optional)",
           "file_action": "Scan target (optional)",
-          "split_pdf": "Split PDF into pages"
+          "split_pdf": "Split PDF into pages",
+          "delete_original_after_split": "Delete original after successful processing"
         },
         "data_description": {
           "filename_prefix": "When set, the integration renames the file to prefix_timestamp.extension.",
           "file_action": "Choose where the scanned file should be stored. Available scan targets are loaded automatically from ScanservJS.",
-          "split_pdf": "Splits a multi-page PDF into separate PDF files before saving."
+          "split_pdf": "Splits a multi-page PDF into separate PDF files before saving.",
+          "delete_original_after_split": "Deletes the original PDF only after splitting and all subsequent file actions completed successfully."
+        }
+      },
+      "split_options": {
+        "title": "PDF split options",
+        "description": "Choose what should happen to the original PDF after all split pages were processed successfully.",
+        "data": {
+          "delete_original_after_split": "Delete original after successful processing"
+        },
+        "data_description": {
+          "delete_original_after_split": "Deletes the original PDF only after splitting and all subsequent file actions completed successfully."
         }
       },
       "move_profile": {
