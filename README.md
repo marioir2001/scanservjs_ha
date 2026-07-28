@@ -65,7 +65,30 @@ Settings
 
 ### HACS (Coming Soon)
 
-Not yet available.
+### Option 2: Installation via HACS (Home Assistant Community Store)
+
+1. **Ensure HACS is Installed**
+   If you don’t have HACS installed, follow the [HACS installation guide](https://hacs.xyz/docs/use/).
+
+2. **Add the Custom Repository**
+   - Open Home Assistant and navigate to **HACS** → **Integrations**.
+   - Click the **three dots menu** in the top-right corner and select **Custom repositories**.
+   - Add the following repository URL:
+     ```
+     https://github.com/marioir2001/scanservjs_ha
+     ```
+   - Select **Integration** as the category.
+   - Click **Add**.
+
+3. **Install the Integration**
+   - Search for "scanservjs_ha" in the HACS integrations list.
+   - Click **Install** to download and install the integration.
+
+4. **Restart Home Assistant**
+   to apply changes.
+
+5. **Add the integration via the UI**:
+   Go to **Settings** → **Devices & Services** → **Add Integration** and search for "scanservjs_ha".
 
 
 
