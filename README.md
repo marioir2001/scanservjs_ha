@@ -147,18 +147,25 @@ Depending on your scanner and ScanservJS configuration, available options may in
 - Image filters
 - Batch mode
 - Filename prefix
-- File action
+-  Split PDF (optional)
+- Delete original PDF after successful processing (optional)
+- Scan destination (optional)
   
 **Note:** All available scanner options are loaded dynamically from your ScanservJS configuration. If you change scanner settings or update ScanservJS, simply reload the integration to make the new options available.
+> **Note**
+>
+> - **Split PDF** splits multi-page PDFs into individual PDF files before executing any file actions.
+> - **Delete original PDF after successful processing** removes the original PDF only after the split operation (if enabled) and all configured file actions have completed successfully.
+> - The **Split PDF** feature requires `pdfseparate` from the `poppler-utils` package to be installed on the ScanservJS host.
 
 The available options are automatically detected and may differ depending on your scanner model.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/marioir2001/scanservjs_ha/main/screenshots/Profil-Edit1.png" width="30%">
   <img src="https://raw.githubusercontent.com/marioir2001/scanservjs_ha/main/screenshots/Profil-Edit2.png" width="30%">
-  <img src="https://raw.githubusercontent.com/marioir2001/scanservjs_ha/main/screenshots/Profil-Edit3.png" width="30%">
-  
+  <img src="https://raw.githubusercontent.com/marioir2001/scanservjs_ha/main/screenshots/Profil-Edit3.png" width="30%">  
 </p>
+
 
 ---
 
