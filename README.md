@@ -151,13 +151,13 @@ Depending on your scanner and ScanservJS configuration, available options may in
 - Delete original PDF after successful processing (optional)
 - Scan destination (optional)
   
-**Note:** All available scanner options are loaded dynamically from your ScanservJS configuration. If you change scanner settings or update ScanservJS, simply reload the integration to make the new options available.
 > **Note**
 >
 > - **Split PDF** splits multi-page PDFs into individual PDF files before executing any file actions.
 > - **Delete original PDF after successful processing** removes the original PDF only after the split operation (if enabled) and all configured file actions have completed successfully.
 > - The **Split PDF** feature requires `pdfseparate` from the `poppler-utils` package to be installed on the ScanservJS host.
 
+**Note:** All available scanner options are loaded dynamically from your ScanservJS configuration. If you change scanner settings or update ScanservJS, simply reload the integration to make the new options available.
 The available options are automatically detected and may differ depending on your scanner model.
 
 <p align="center">
