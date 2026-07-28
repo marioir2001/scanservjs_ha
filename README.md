@@ -63,9 +63,7 @@ Settings
 → ScanservJS
 ```
 
-### HACS (Coming Soon)
-
-### Option 2: Installation via HACS (Home Assistant Community Store)
+### Installation via HACS (Home Assistant Community Store)
 
 1. **Ensure HACS is Installed**
    If you don’t have HACS installed, follow the [HACS installation guide](https://hacs.xyz/docs/use/).
