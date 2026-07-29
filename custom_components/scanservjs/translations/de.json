@@ -102,16 +102,6 @@
           "delete_original_after_split": "Löscht die ursprüngliche PDF nur, wenn das Aufteilen und alle nachfolgenden Dateiaktionen erfolgreich waren."
         }
       },
-      "split_options": {
-        "title": "Optionen für die PDF-Aufteilung",
-        "description": "Lege fest, was mit der ursprünglichen PDF geschehen soll, nachdem alle Einzelseiten erfolgreich verarbeitet wurden.",
-        "data": {
-          "delete_original_after_split": "Original nach erfolgreicher Verarbeitung löschen"
-        },
-        "data_description": {
-          "delete_original_after_split": "Löscht die ursprüngliche PDF nur, wenn das Aufteilen und alle nachfolgenden Dateiaktionen erfolgreich waren."
-        }
-      },
       "move_profile": {
         "title": "Reihenfolge ändern",
         "data": {
