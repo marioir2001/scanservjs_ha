@@ -98,25 +98,7 @@ For example:
 
 ---
 
-# 3. Copy custom action files
-
-Some actions require additional JavaScript files.
-
-Example:
-
-- split_pdf.js
-- move_pdf.js
-- ...
-
-Copy these files into the same directory as `actions.js`.
-
-> **Important**
->
-> Do not rename these files unless you also update the references inside `actions.js`.
-
----
-
-# 4. Configure targets.js
+# 3. Configure targets.js
 
 The optional `targets.js` file defines the available destination directories that can be used by custom ScanservJS file actions.
 
@@ -185,7 +167,7 @@ The **value** specifies the directory where the selected file action should stor
 >
 > After changing `targets.js`, restart the ScanservJS container so the new destinations become available in Home Assistant.
 
-# 5. Restart ScanservJS
+# 4. Restart ScanservJS
 
 After all files have been copied, restart the ScanservJS container.
 
@@ -197,7 +179,7 @@ docker restart <scanservjs-container>
 
 ---
 
-# 6. Verify the installation
+# 5. Verify the installation
 
 After restarting ScanservJS:
 
