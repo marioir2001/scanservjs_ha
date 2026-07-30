@@ -44,25 +44,15 @@ ScanservJS already provides a great web interface for scanning. This integration
 - Working ScanservJS installation
 - `pdfseparate` (part of the `poppler-utils` package) for the **Split PDF** file action
 
-## Additional Dependencies
+---
 
-The **Split PDF** file action requires `pdfseparate`, which is included in the `poppler-utils` package.
+## Preparing ScanservJS
 
-### Debian / Ubuntu
+Before using the advanced file actions of this integration, ScanservJS must be prepared.
 
-```bash
-sudo apt install poppler-utils
-```
+Please follow the setup guide:
 
-### Alpine Linux
-
-```bash
-apk add poppler-utils
-```
-
-### Docker
-
-If you are using ScanservJS in Docker, make sure the `poppler-utils` package is installed inside the container before using the **Split PDF** action.
+➡️ **docs/scanservjs_setup.md**
 
 ---
 
