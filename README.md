@@ -52,7 +52,7 @@ Before using the advanced file actions of this integration, ScanservJS must be p
 
 Please follow the setup guide:
 
-➡️ **docs/scanservjs_setup.md**
+➡️  **[Preparing ScanservJS](docs/scanservjs_setup.md)**
 
 ---
 
