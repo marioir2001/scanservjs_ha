@@ -125,7 +125,7 @@ Defining a target in `targets.js` is **not enough**.
 
 A custom file action must also reference that target. Otherwise, the destination will **not** appear in Home Assistant.
 
-Example:
+Example: `move_pdf.js`
 
 ```javascript
 "use strict";
