@@ -53,14 +53,15 @@ This integration extends ScanservJS with additional file actions.
 
 Copy the provided files from this repository into the appropriate ScanservJS configuration directory.
 
-`/etc/scanservjs`
+`/etc/scanservjs/`
 
 Example:
 
 ```text
-/etc/scanservjs/
-    actions.js
+/etc/scanservjs/actions/
+    move_paperless.js
     split_pdf.js
+    move_pdf.js
     ...
 ```
 
