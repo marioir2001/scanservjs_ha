@@ -96,6 +96,43 @@ For example:
 >
 > If you already use custom ScanservJS actions or configuration files, merge your changes instead of simply overwriting the existing files.
 
+
+## 🔒 Required action
+
+The following files are required for the Home Assistant integration and should not be removed unless you know exactly what you are doing.
+
+### split_pdf.js
+
+The `split_pdf.js` action is required for the **Split PDF** feature.
+
+> **Important**
+>
+> - Do **not** rename this file.
+> - Do **not** delete this file if you want to use the **Split PDF** feature.
+> - This action requires `pdfseparate` from the `poppler-utils` package.
+
+---
+
+## 💡 Example actions
+
+The remaining `move_*.js` files are provided as examples and can be freely customized.
+
+For example:
+
+- `move_pdf.js`
+- `move_image.js`
+- `move_paperless.js`
+- `move_member_application.js`
+
+You may:
+
+- Rename them
+- Modify them
+- Delete them
+- Create your own actions
+
+Each action simply demonstrates how to move files to one of the configured scan targets.
+
 ---
 
 # 3. Configure targets.js
