@@ -76,19 +76,7 @@ If you already use custom ScanservJS actions or targets, merge your changes inst
 
 ---
 
-# 3. Configure actions.js
-
-The provided `actions.js` registers the custom file actions that are available inside Home Assistant.
-
-After replacing this file, ScanservJS will automatically detect the new actions during startup.
-
-> **Note**
->
-> Existing custom actions should be merged manually if you already modified `actions.js`.
-
----
-
-# 4. Copy custom action files
+# 3. Copy custom action files
 
 Some actions require additional JavaScript files.
 
@@ -106,7 +94,7 @@ Copy these files into the same directory as `actions.js`.
 
 ---
 
-# 5. Configure targets.js
+# 4. Configure targets.js
 
 The optional `targets.js` file defines the available destination directories that can be used by custom ScanservJS file actions.
 
@@ -175,7 +163,7 @@ The **value** specifies the directory where the selected file action should stor
 >
 > After changing `targets.js`, restart the ScanservJS container so the new destinations become available in Home Assistant.
 
-# 6. Restart ScanservJS
+# 5. Restart ScanservJS
 
 After all files have been copied, restart the ScanservJS container.
 
@@ -187,7 +175,7 @@ docker restart <scanservjs-container>
 
 ---
 
-# 7. Verify the installation
+# 6. Verify the installation
 
 After restarting ScanservJS:
 
