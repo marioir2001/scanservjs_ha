@@ -47,32 +47,54 @@ If you are using ScanservJS in Docker, install the package inside the container 
 
 ---
 
-# 2. Copy the custom ScanservJS files
+## 2. Copy the custom ScanservJS files
 
-This integration extends ScanservJS with additional file actions.
+This integration extends ScanservJS with additional file actions, configuration files and helper libraries.
 
-Copy the provided files from this repository into the appropriate ScanservJS configuration directory. `/etc/scanservjs/`
-
-Example:
+Copy the contents of the repository's `scanservjs` directory to your ScanservJS configuration directory:
 
 ```text
-/etc/scanservjs/actions/
-    move_paperless.js
-    split_pdf.js
-    move_pdf.js
-    ...
+Repository
+scanservjs/
+├── actions/
+├── config/
+└── lib/
+
+↓
+
+/etc/scanservjs/
+├── actions/
+├── config/
+└── lib/
 ```
+
+For example:
 
 ```text
 /etc/scanservjs/
-     config.local.js
-    ...
+├── actions/
+│   ├── move_image.js
+│   ├── move_member_application.js
+│   ├── move_paperless.js
+│   ├── move_pdf.js
+│   └── split_pdf.js
+│
+├── config/
+│   ├── config.local.js
+│   ├── filetypes.js
+│   ├── paths.js
+│   └── targets.js
+│
+└── lib/
+    ├── create_move_action.js
+    └── file.js
 ```
-⚠️ Backup recommended
 
-Before replacing existing files, create a backup of your current /etc/scanservjs directory.
-
-If you already use custom ScanservJS actions or targets, merge your changes instead of simply overwriting the files.
+> **⚠️ Backup recommended**
+>
+> Before replacing existing files, create a backup of your `/etc/scanservjs` directory.
+>
+> If you already use custom ScanservJS actions or configuration files, merge your changes instead of simply overwriting the existing files.
 
 ---
 
