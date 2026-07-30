@@ -103,9 +103,7 @@ Copy these files into the same directory as `actions.js`.
 
 # 5. Configure targets.js
 
-The optional `targets.js` file defines scan destinations that can be selected in Home Assistant.
-
-Each entry consists of a **target name** and the corresponding destination directory.
+The optional `targets.js` file defines the available destination directories that can be used by custom ScanservJS file actions.
 
 Example:
 
@@ -120,6 +118,37 @@ module.exports = {
   paperless: "/targets/paperless",
 };
 ```
+
+## Using a target
+
+Defining a target in `targets.js` is **not enough**.
+
+A custom file action must also reference that target. Otherwise, the destination will **not** appear in Home Assistant.
+
+Example:
+
+```javascript
+"use strict";
+
+const TARGETS = require("../config/targets");
+const { PDF_EXTENSIONS } = require("../config/filetypes");
+const { createMoveAction } = require("../lib/create_move_action");
+
+module.exports = createMoveAction({
+  name: "move_pdf",
+  targetDirectory: TARGETS.pdf,
+  allowedExtensions: PDF_EXTENSIONS,
+});
+```
+
+In this example, the action uses the `pdf` target defined in `targets.js`.
+
+When Home Assistant reads the available file actions, it automatically detects that this action supports the **pdf** destination and makes it available in the profile editor.
+
+> **Important**
+>
+> Every destination defined in `targets.js` requires at least one corresponding file action.
+> Unused targets are ignored and will not be shown in Home Assistant.
 
 ## How it works
 
