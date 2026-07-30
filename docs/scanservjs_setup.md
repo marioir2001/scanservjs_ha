@@ -51,9 +51,7 @@ If you are using ScanservJS in Docker, install the package inside the container 
 
 This integration extends ScanservJS with additional file actions.
 
-Copy the provided files from this repository into the appropriate ScanservJS configuration directory.
-
-`/etc/scanservjs/`
+Copy the provided files from this repository into the appropriate ScanservJS configuration directory. `/etc/scanservjs/`
 
 Example:
 
