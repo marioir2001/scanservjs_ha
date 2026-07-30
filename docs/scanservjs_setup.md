@@ -53,12 +53,12 @@ This integration extends ScanservJS with additional file actions.
 
 Copy the provided files from this repository into the appropriate ScanservJS configuration directory.
 
-**TODO:** Insert the correct destination path.
+/etc/scanservjs/
 
 Example:
 
 ```text
-/config/
+/etc/scanservjs/
     actions.js
     split_pdf.js
     ...
