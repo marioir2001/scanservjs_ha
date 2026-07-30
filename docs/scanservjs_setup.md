@@ -98,36 +98,43 @@ Copy these files into the same directory as `actions.js`.
 
 # 5. Configure targets.js
 
-The optional `targets.js` file allows ScanservJS to expose predefined scan destinations to Home Assistant.
+The optional `targets.js` file defines scan destinations that can be selected in Home Assistant.
+
+Each entry consists of a **target name** and the corresponding destination directory.
 
 Example:
 
 ```javascript
-module.exports = [
-  {
-    id: "paperless",
-    name: "Paperless Inbox",
-    path: "/paperless/inbox"
-  },
-  {
-    id: "archive",
-    name: "Archive",
-    path: "/documents/archive"
-  }
-];
+"use strict";
+
+module.exports = {
+  pdf: "/targets/pdf",
+  image: "/targets/image",
+  memberApplication: "/targets/pdf/MemberApplications",
+  invoice: "/targets/pdf/Invoices",
+  paperless: "/targets/paperless",
+};
 ```
 
-Each target contains:
+## How it works
 
-| Property | Description |
-|----------|-------------|
-| id | Internal identifier |
-| name | Display name shown in Home Assistant |
-| path | Destination directory |
+The **property name** becomes the destination shown in Home Assistant.
 
-These scan destinations will automatically appear in the profile editor of the Home Assistant integration.
+The **value** specifies the directory where the selected file action should store the file.
 
----
+| Target | Directory |
+|---------|-----------|
+| `pdf` | `/targets/pdf` |
+| `image` | `/targets/image` |
+| `memberApplication` | `/targets/pdf/MemberApplications` |
+| `invoice` | `/targets/pdf/Invoices` |
+| `paperless` | `/targets/paperless` |
+
+> **Note**
+>
+> You can freely add, remove or rename targets to match your own folder structure.
+>
+> After changing `targets.js`, restart the ScanservJS container so the new destinations become available in Home Assistant.
 
 # 6. Restart ScanservJS
 
