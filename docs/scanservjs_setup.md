@@ -97,8 +97,30 @@ The files in lib/ contain shared helper functions used by the example actions.
 >
 > If you already use custom ScanservJS actions or configuration files, merge your changes instead of simply overwriting the existing files.
 
+**🔒 Required files**
 
-**🔒 Required action**
+The following files are required by the Home Assistant integration and should not be renamed or removed.
+
+### `config.local.js`
+
+This file contains the custom ScanservJS configuration required by the Home Assistant integration.
+
+> **Important**
+>
+> - Do **not** rename this file.
+> - Do **not** delete this file.
+> - Existing settings should be merged if you already use a custom `config.local.js`.
+
+### `split_pdf.js`
+
+This action is required for the **Split PDF** feature.
+
+> **Important**
+>
+> - Do **not** rename this file.
+> - Do **not** delete this file if you want to use the **Split PDF** feature.
+> - This action requires `pdfseparate` from the `poppler-utils` package.
+action**
 
 The following files are required for the Home Assistant integration and should not be removed unless you know exactly what you are doing.
 
