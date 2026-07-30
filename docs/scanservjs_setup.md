@@ -98,7 +98,7 @@ The files in lib/ contain shared helper functions used by the example actions.
 > If you already use custom ScanservJS actions or configuration files, merge your changes instead of simply overwriting the existing files.
 
 
-## 🔒 Required action
+**🔒 Required action**
 
 The following files are required for the Home Assistant integration and should not be removed unless you know exactly what you are doing.
 
@@ -112,7 +112,7 @@ The following files are required for the Home Assistant integration and should n
 
 ---
 
-## 💡 Example actions
+**💡 Example actions**
 
 The supplied `move_*.js` actions are examples intended to help you get started. Feel free to adapt them to your own workflow or replace them with custom actions.
 
