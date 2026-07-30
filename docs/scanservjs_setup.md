@@ -68,6 +68,11 @@ Example:
      config.local.js
     ...
 ```
+⚠️ Backup recommended
+
+Before replacing existing files, create a backup of your current /etc/scanservjs directory.
+
+If you already use custom ScanservJS actions or targets, merge your changes instead of simply overwriting the files.
 
 ---
 
