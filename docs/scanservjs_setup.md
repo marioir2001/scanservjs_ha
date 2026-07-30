@@ -101,7 +101,7 @@ For example:
 
 The following files are required for the Home Assistant integration and should not be removed unless you know exactly what you are doing.
 
-'split_pdf.js' is required for the Split PDF feature and should not be renamed or removed.
+`split_pdf.js` is required for the Split PDF feature and should not be renamed or removed.
 
 > **Important**
 >
@@ -113,7 +113,7 @@ The following files are required for the Home Assistant integration and should n
 
 ## 💡 Example actions
 
-The remaining `move_*.js` files are provided as examples and can be freely customized.
+The supplied `move_*.js` actions are examples intended to help you get started. Feel free to adapt them to your own workflow or replace them with custom actions.
 
 For example:
 
