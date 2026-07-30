@@ -72,6 +72,7 @@ For example:
 
 ```text
 /etc/scanservjs/
+|── config.local.js
 ├── actions/
 │   ├── move_image.js
 │   ├── move_member_application.js
@@ -80,7 +81,6 @@ For example:
 │   └── split_pdf.js
 │
 ├── config/
-│   ├── config.local.js
 │   ├── filetypes.js
 │   ├── paths.js
 │   └── targets.js
