@@ -53,7 +53,7 @@ This integration extends ScanservJS with additional file actions.
 
 Copy the provided files from this repository into the appropriate ScanservJS configuration directory.
 
-'/etc/scanservjs/'
+`/etc/scanservjs`
 
 Example:
 
