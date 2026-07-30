@@ -122,15 +122,7 @@ This action is required for the **Split PDF** feature.
 > - This action requires `pdfseparate` from the `poppler-utils` package.
 action**
 
-The following files are required for the Home Assistant integration and should not be removed unless you know exactly what you are doing.
-
 `split_pdf.js` is the only action required by the integration for the Split PDF feature. All other move_*.js actions are examples and may be customized or removed.
-
-> **Important**
->
-> - Do **not** rename this file.
-> - Do **not** delete this file if you want to use the **Split PDF** feature.
-> - This action requires `pdfseparate` from the `poppler-utils` package.
 
 ---
 
