@@ -89,6 +89,7 @@ For example:
     ├── create_move_action.js
     └── file.js
 ```
+The files in lib/ contain shared helper functions used by the example actions.
 
 > **⚠️ Backup recommended**
 >
@@ -130,6 +131,8 @@ You may:
 - Create your own actions
 
 Each action simply demonstrates how to move files to one of the configured scan targets.
+
+The example actions use the scan targets defined in config/targets.js
 
 ---
 
@@ -236,7 +239,6 @@ Verify that:
 
 - `pdfseparate` is installed.
 - `split_pdf.js` exists.
-- `actions.js` has been updated.
 - ScanservJS has been restarted.
 
 ---
@@ -247,16 +249,6 @@ Verify that:
 
 - `targets.js` exists.
 - The file contains valid JavaScript.
-- ScanservJS has been restarted.
-
----
-
-## File Actions are missing
-
-Verify that:
-
-- The custom action files have been copied correctly.
-- `actions.js` references them correctly.
 - ScanservJS has been restarted.
 
 ---
