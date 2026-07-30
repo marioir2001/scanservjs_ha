@@ -65,6 +65,12 @@ Example:
     ...
 ```
 
+```text
+/etc/scanservjs/
+     config.local.js
+    ...
+```
+
 ---
 
 # 3. Configure actions.js
